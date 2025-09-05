@@ -8,6 +8,7 @@ import Writing from './pages/writing'
 import Speaking from './pages/speaking'
 import Register from './pages/auth/register'
 import Login from './pages/auth/login'
+import Profile from './pages/auth/profile'
 
 function App() {
 	const route = createBrowserRouter([
@@ -43,6 +44,10 @@ function App() {
 				{
 					path: '/register',
 					element: <Register />,
+				},
+				{
+					path: '/profile',
+					element: <Profile />,
 				},
 			],
 		},

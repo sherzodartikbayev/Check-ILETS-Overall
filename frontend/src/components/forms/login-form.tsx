@@ -67,7 +67,12 @@ function LoginForm() {
 					render={({ field }) => (
 						<FormItem>
 							<FormControl>
-								<Input placeholder='Password' disabled={isLoading} {...field} />
+								<Input
+									placeholder='Password'
+									type='password'
+									disabled={isLoading}
+									{...field}
+								/>
 							</FormControl>
 							<FormMessage />
 						</FormItem>

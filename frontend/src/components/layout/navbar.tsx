@@ -20,7 +20,7 @@ function Navbar() {
 				</Link>
 
 				{user ? (
-					<UserBox user={user.user} />
+					<UserBox user={user} />
 				) : (
 					<>
 						{/* Register Btns */}

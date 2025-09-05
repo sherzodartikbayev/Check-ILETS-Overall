@@ -1,43 +1,27 @@
 import {
 	DropdownMenu,
 	DropdownMenuContent,
-	DropdownMenuItem,
 	DropdownMenuSeparator,
 	DropdownMenuTrigger,
 } from '../ui/dropdown-menu'
 import { Avatar, AvatarFallback } from '../ui/avatar'
 import { Button } from '../ui/button'
-import type { IUserDetail } from '@/types'
-import AuthService from '@/services/auth'
-import { useDispatch } from 'react-redux'
-import { logoutUser } from '@/slices/auth.slice'
-import { toast } from 'sonner'
+import type { IUser } from '@/types'
+import { Link } from 'react-router-dom'
+import { User } from 'lucide-react'
 
 interface Props {
-	user: IUserDetail
+	user: IUser
 }
 
 function UserBox({ user }: Props) {
-	const dispatch = useDispatch()
-
-	const onLogout = async () => {
-		try {
-			await AuthService.userLogout(user.id!)
-			toast.success('Successfully logout!')
-			dispatch(logoutUser())
-		} catch (error) {
-			const result = error as Error
-			toast.error(result.message)
-		}
-	}
-
 	return (
 		<DropdownMenu>
 			<DropdownMenuTrigger asChild>
 				<Avatar className='size-10 cursor-pointer border'>
 					<AvatarFallback>
-						{user.firstName[0]}
-						{user.lastName[0]}
+						{user.user.firstName[0]}
+						{user.user.lastName[0]}
 					</AvatarFallback>
 				</Avatar>
 			</DropdownMenuTrigger>
@@ -49,13 +33,13 @@ function UserBox({ user }: Props) {
 			>
 				<div className='flex flex-col space-y-4 p-2'>
 					<p className='text-xs font-medium leading-none text-foreground'>
-						{user.email}
+						{user.user.email}
 					</p>
 
 					<div className='flex items-center gap-x-2'>
 						<div className='space-y-1'>
 							<p className='line-clamp-1 font-space-grotesk text-sm'>
-								{user.firstName} {user.lastName}
+								{user.user.firstName} {user.user.lastName}
 							</p>
 						</div>
 					</div>
@@ -63,15 +47,12 @@ function UserBox({ user }: Props) {
 
 				<DropdownMenuSeparator />
 
-				<DropdownMenuItem asChild className='w-full cursor-pointer'>
-					<Button
-						variant='destructive'
-						className='h-8'
-						onClick={() => onLogout()}
-					>
-						Logout
+				<Link to='/profile'>
+					<Button variant='outline' className='w-full h-8 my-1'>
+						<User />
+						Your Profile
 					</Button>
-				</DropdownMenuItem>
+				</Link>
 			</DropdownMenuContent>
 		</DropdownMenu>
 	)

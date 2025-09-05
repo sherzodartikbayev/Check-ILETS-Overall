@@ -11,11 +11,6 @@ const AuthService = {
 		const { data } = await axios.post('/auth/login', user)
 		return data
 	},
-
-	async userLogout(id: string) {
-		const { data } = await axios.post('/auth/logout', id)
-		return data
-	},
 }
 
 export default AuthService
