@@ -1,14 +1,15 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { persistStore, persistReducer } from 'redux-persist'
-import storage from 'redux-persist/lib/storage' // localStorage ishlatadi
-import AuthReducer from '@/slices/auth.slice'
+import storage from 'redux-persist/lib/storage'
+import authReducer from '@/slices/auth.slice'
 
 const persistConfig = {
 	key: 'auth',
 	storage,
+	whitelist: ['user'],
 }
 
-const persistedAuthReducer = persistReducer(persistConfig, AuthReducer)
+const persistedAuthReducer = persistReducer(persistConfig, authReducer)
 
 export const store = configureStore({
 	reducer: {
@@ -21,6 +22,5 @@ export const store = configureStore({
 })
 
 export const persistor = persistStore(store)
-
 export type RootState = ReturnType<typeof store.getState>
 export type AppDispatch = typeof store.dispatch

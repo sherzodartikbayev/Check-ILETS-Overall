@@ -2,13 +2,10 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import RootLayout from './layout/root-layout'
 import Error from './pages/error'
 import Home from './pages/home'
-import Reading from './pages/reading'
-import Listening from './pages/listening'
-import Writing from './pages/writing'
-import Speaking from './pages/speaking'
-import Register from './pages/auth/register'
 import Login from './pages/auth/login'
 import Profile from './pages/auth/profile'
+import Test from './pages/test'
+import Register from './pages/auth/register'
 
 function App() {
 	const route = createBrowserRouter([
@@ -22,20 +19,8 @@ function App() {
 					element: <Home />,
 				},
 				{
-					path: '/reading',
-					element: <Reading />,
-				},
-				{
-					path: '/listening',
-					element: <Listening />,
-				},
-				{
-					path: '/writing',
-					element: <Writing />,
-				},
-				{
-					path: '/speaking',
-					element: <Speaking />,
+					path: ':test',
+					element: <Test />,
 				},
 				{
 					path: '/login',

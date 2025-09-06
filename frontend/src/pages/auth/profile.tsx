@@ -35,25 +35,25 @@ function Profile() {
 
 	return (
 		<section>
-			<div className='container max-w-8xl mx-auto w-full min-h-[90vh] flex items-center justify-center'>
-				<Card className='max-w-xl px-6 py-10 w-full border'>
-					<CardContent className='flex flex-col justify-between min-h-96'>
+			<div className='container max-w-8xl px-5 mx-auto w-full min-h-[90vh] flex items-center justify-center'>
+				<Card className='max-w-lg py-10 w-full border'>
+					<CardContent className='flex flex-col justify-between min-h-80 md:min-h-96'>
 						<h2 className='text-lg font-bold md:text-2xl'>Your Profile</h2>
 
-						<div className='flex flex-col gap-8'>
-							<div className='flex items-center justify-between gap-2 border-b text-lg'>
+						<div className='flex flex-col gap-5 md:gap-8'>
+							<div className='flex items-center justify-between gap-2 border-b text-base md:text-lg'>
 								<p>Username:</p>
 								<strong>{user.user.username}</strong>
 							</div>
-							<div className='flex items-center justify-between gap-2 border-b text-lg'>
+							<div className='flex items-center justify-between gap-2 border-b text-base md:text-lg'>
 								<p>Email:</p>
 								<strong>{user.user.email}</strong>
 							</div>
-							<div className='flex items-center justify-between gap-2 border-b text-lg'>
+							<div className='flex items-center justify-between gap-2 border-b text-base md:text-lg'>
 								<p>First Name:</p>
 								<strong>{user.user.firstName}</strong>
 							</div>
-							<div className='flex items-center justify-between gap-2 border-b text-lg'>
+							<div className='flex items-center justify-between gap-2 border-b text-base md:text-lg'>
 								<p>Last Name:</p>
 								<strong>{user.user.lastName}</strong>
 							</div>
